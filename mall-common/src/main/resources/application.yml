@@ -1,0 +1,1 @@
+mysqlUrl: jdbc:mysql://172.18.228.154:3306/mall_sms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai

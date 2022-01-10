@@ -1,11 +1,20 @@
 server:
-  port: 10000
+  port: 12000
+
 spring:
+  profiles:
+    active: common
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.26.78.241:3306/mall_pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: ${productSqlUrl}
     username: root
     password:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: product
 
 
 mybatis-plus:
