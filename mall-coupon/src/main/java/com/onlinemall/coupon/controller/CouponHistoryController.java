@@ -27,6 +27,7 @@ import com.onlinemall.common.utils.R;
 @RestController
 @RequestMapping("coupon/couponhistory")
 public class CouponHistoryController {
+
     @Autowired
     private CouponHistoryService couponHistoryService;
 

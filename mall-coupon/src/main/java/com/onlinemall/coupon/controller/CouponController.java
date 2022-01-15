@@ -3,7 +3,14 @@ package com.onlinemall.coupon.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,11 +31,34 @@ import com.onlinemall.common.utils.R;
  * @email junhaowang.stu@qq.com
  * @date 2022-01-08 15:59:54
  */
+@RefreshScope(proxyMode = ScopedProxyMode.DEFAULT)
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
+
+    static private Logger logger = LoggerFactory.getLogger(CouponController.class);
+
     @Autowired
     private CouponService couponService;
+
+    @Value("${coupon.user.name}")
+    private String name;
+
+    @Autowired
+    A_TestBean a_testBean;
+
+    /**
+     * 测试
+     */
+    @RequestMapping("/testconfig")
+    public R testconfig(){
+//        System.out.println(a_testBean.getName());
+//        return R.ok().put("name", a_testBean.getName());
+//        System.out.println(name);
+        logger.info("name:{}", name);
+        return R.ok().put("name", name);
+    }
+
 
     /**
      * 列表
