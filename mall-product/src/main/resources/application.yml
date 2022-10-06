@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: ${productSqlUrl}
     username: root
-    password:
+    password: root
   cloud:
     nacos:
       discovery:

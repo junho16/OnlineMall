@@ -18,9 +18,7 @@ class MallProductApplicationTests {
 
     @Resource
     BrandService brandService;
-
-
-
+//
 //    @Test
 //    public void testFindPath(){
 //        Long[] catelogPath = categoryService.findCatelogPath(225L);
@@ -32,8 +30,8 @@ class MallProductApplicationTests {
     public void contextLoads() {
 
         BrandEntity brandEntity = new BrandEntity();
-        brandEntity.setBrandId(1L);
-        brandEntity.setDescript("华为");
+        brandEntity.setBrandId(9L);
+        brandEntity.setDescript("华为.");
 
 //        brandEntity.setName("华为");
 //        brandService.save(brandEntity);
