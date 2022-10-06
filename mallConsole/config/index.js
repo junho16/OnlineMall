@@ -14,7 +14,8 @@ module.exports = {
     // 代理列表, 是否开启代理通过[./dev.env.js]配置
     proxyTable: devEnv.OPEN_PROXY === false ? {} : {
       '/proxyApi': {
-        target: 'http://demo.renren.io/renren-fast/',
+        target: 'http://127.0.0.1:8080/renren-fast/',
+        // target: 'http://demo.renren.io/renren-fast/',
         changeOrigin: true,
         pathRewrite: {
           '^/proxyApi': '/'
@@ -33,7 +34,8 @@ module.exports = {
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    // useEslint: true,
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
