@@ -52,7 +52,7 @@ public class R extends HashMap<String, Object> {
 		r.putAll(map);
 		return r;
 	}
-	
+
 	public static R ok() {
 		return new R();
 	}
