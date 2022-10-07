@@ -32,6 +32,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
 
+
     /**
      * 查出所有分类以及子分类，以树形结构组装起来
      */
@@ -40,7 +41,7 @@ public class CategoryController {
 
         List<CategoryEntity> entities = categoryService.listWithTree();
 
-        return R.ok().put("page", entities);
+        return R.ok().put("data", entities);
     }
 
 
