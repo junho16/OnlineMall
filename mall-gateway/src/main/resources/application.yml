@@ -12,16 +12,30 @@ spring:
   cloud:
     gateway:
       routes:
+#        - id: admin_route
+#          uri: lb://renrenfast
+#          predicates:
+#            - Path=/api/**
+#          filters:
+#            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+#        - id: qq_route
+#          uri: https://www.qq.com
+#          predicates:
+#            - Query=green,baidu
+#       前端项目发送的请求 全都先路由到renrenfast上
+        - id: product_route
+          uri: lb://product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
         - id: admin_route
           uri: lb://renrenfast
           predicates:
             - Path=/api/**
           filters:
             - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
-        - id: qq_route
-          uri: https://www.qq.com
-          predicates:
-            - Query=green
+
 #            下面这个未生效或者是我写错了 上面这个访问成功应该是：http://localhost:88/?green=1
 #        - id: path_route
 #          uri: https://www.baidu.com
