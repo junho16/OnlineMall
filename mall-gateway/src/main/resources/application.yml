@@ -29,6 +29,14 @@ spring:
             - Path=/api/product/**
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
+        # 第三方服务
+        - id: third_party_route
+          uri: lb://thirdparty
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
+        # renrenfast后台服务
         - id: admin_route
           uri: lb://renrenfast
           predicates:

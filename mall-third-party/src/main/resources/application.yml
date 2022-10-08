@@ -1,0 +1,34 @@
+server:
+  port: 13000
+
+spring:
+  profiles:
+    active: common
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${productSqlUrl}
+    username: root
+    password: root
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacosIp}
+    alicloud:
+      access-key: LTAI5tMkHnXXPHALQdvDyjtn
+      secret-key: s5bhbcFO9WAaFd0IubVhfsEHAjrTyl
+      oss:
+        endpoint: oss-cn-hangzhou.aliyuncs.com
+        bucket: onlinemaill-wjh
+  application:
+    name: thirdparty
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      #主键自增
+      id-type: auto
+      # 逻辑删除
+      logic-delete-value: 1
+      logic-not-delete-value: 0
