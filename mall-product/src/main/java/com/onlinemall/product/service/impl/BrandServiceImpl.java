@@ -28,7 +28,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
         //1、获取key
         String key = (String) params.get("key");
         QueryWrapper<BrandEntity> queryWrapper = new QueryWrapper<>();
-        if(!StringUtils.isEmpty(key)){
+        if(!StringUtils.isEmpty( key )){
             queryWrapper.eq("brand_id",key).or().like("name",key);
         }
 
