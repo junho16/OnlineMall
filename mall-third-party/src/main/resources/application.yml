@@ -18,7 +18,7 @@ spring:
       secret-key: s5bhbcFO9WAaFd0IubVhfsEHAjrTyl
       oss:
         endpoint: oss-cn-hangzhou.aliyuncs.com
-        bucket: onlinemaill-wjh
+        bucket: onlinemall-wjh
   application:
     name: thirdparty
 

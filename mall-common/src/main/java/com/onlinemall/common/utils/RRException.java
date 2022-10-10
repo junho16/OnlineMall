@@ -6,7 +6,7 @@
  * 版权所有，侵权必究！
  */
 
-package com.onlinemall.common.exception;
+package com.onlinemall.common.utils;
 
 /**
  * 自定义异常
@@ -17,6 +17,7 @@ public class RRException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 	
     private String msg;
+
     private int code = 500;
     
     public RRException(String msg) {

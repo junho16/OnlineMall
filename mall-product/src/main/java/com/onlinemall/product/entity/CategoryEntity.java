@@ -64,7 +64,7 @@ public class CategoryEntity implements Serializable {
 
 
 	/**
-	 * 自己加的 子菜单
+	 * 自己加的 子菜单 不为空的时候返回
 	 */
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	@TableField(exist=false)

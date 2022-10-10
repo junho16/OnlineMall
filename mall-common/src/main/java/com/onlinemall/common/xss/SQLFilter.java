@@ -8,7 +8,7 @@
 
 package com.onlinemall.common.xss;
 
-import com.onlinemall.common.exception.RRException;
+import com.onlinemall.common.utils.RRException;
 import org.apache.commons.lang.StringUtils;
 
 /**
