@@ -5,11 +5,7 @@ import java.util.Map;
 
 import com.onlinemall.product.vo.AttrVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.onlinemall.product.entity.AttrEntity;
 import com.onlinemall.product.service.AttrService;
@@ -41,6 +37,20 @@ public class AttrController {
         return R.ok().put("page", page);
     }
 
+    //product/attr/sale/list/0?
+    ///product/attr/base/list/{catelogId}
+    //    /{attrType}/list/{catelogId}
+    @GetMapping("/base/list/{catelogId}")
+    public R baseAttrList(@RequestParam Map<String, Object> params,
+                          @PathVariable("catelogId") Long catelogId ){
+//    public R baseAttrList(@RequestParam Map<String, Object> params,
+//                          @PathVariable("catelogId") Long catelogId,
+//                          @PathVariable("attrType")String type){
+        String type = "";
+
+        PageUtils page = attrService.queryBaseAttrPage(params,catelogId,type);
+        return R.ok().put("page", page);
+    }
 
     /**
      * 信息
