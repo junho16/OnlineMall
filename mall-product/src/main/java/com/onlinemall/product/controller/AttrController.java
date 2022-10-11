@@ -3,6 +3,7 @@ package com.onlinemall.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.onlinemall.product.vo.AttrGroupRelationVo;
 import com.onlinemall.product.vo.AttrRespVo;
 import com.onlinemall.product.vo.AttrVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,12 +39,10 @@ public class AttrController {
         return R.ok().put("page", page);
     }
 
-    //product/attr/sale/list/0?
-    ///product/attr/base/list/{catelogId}
-    //    /{attrType}/list/{catelogId}
+    // product/attr/sale/list/0?
+    // /product/attr/base/list/{catelogId}
+    // /{attrType}/list/{catelogId}
     @GetMapping("/{attrType}/list/{catelogId}")
-//    public R baseAttrList(@RequestParam Map<String, Object> params,
-//                          @PathVariable("catelogId") Long catelogId ){
     public R baseAttrList(@RequestParam Map<String, Object> params,
                           @PathVariable("catelogId") Long catelogId,
                           @PathVariable("attrType")String type){
@@ -64,15 +63,6 @@ public class AttrController {
         return R.ok().put("attr", respVo);
     }
 
-//    /**
-//     * 保存
-//     */
-//    @RequestMapping("/save")
-//    public R save(@RequestBody AttrEntity attr){
-//		attrService.save(attr);
-//
-//        return R.ok();
-//    }
     /**
      * 保存
      */
