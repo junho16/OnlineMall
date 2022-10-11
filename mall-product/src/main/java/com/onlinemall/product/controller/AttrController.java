@@ -3,6 +3,7 @@ package com.onlinemall.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.onlinemall.product.vo.AttrRespVo;
 import com.onlinemall.product.vo.AttrVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -57,9 +58,10 @@ public class AttrController {
      */
     @RequestMapping("/info/{attrId}")
     public R info(@PathVariable("attrId") Long attrId){
-		AttrEntity attr = attrService.getById(attrId);
+//		AttrEntity attr = attrService.getById(attrId);
+        AttrRespVo respVo = attrService.getAttrInfo(attrId);
 
-        return R.ok().put("attr", attr);
+        return R.ok().put("attr", respVo);
     }
 
 //    /**
@@ -82,15 +84,17 @@ public class AttrController {
         return R.ok();
     }
 
+
     /**
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody AttrEntity attr){
-		attrService.updateById(attr);
+    public R update(@RequestBody AttrVo attr){
+        attrService.updateAttr(attr);
 
         return R.ok();
     }
+
 
     /**
      * 删除
