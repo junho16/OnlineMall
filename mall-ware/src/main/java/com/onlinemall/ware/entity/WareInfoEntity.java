@@ -9,7 +9,7 @@ import lombok.Data;
 
 /**
  * 仓库信息
- * 
+ *
  * @author wjh
  * @email junhaowang.stu@qq.com
  * @date 2022-01-09 15:37:45

@@ -22,11 +22,17 @@ spring:
 #          uri: https://www.qq.com
 #          predicates:
 #            - Query=green,baidu
-#       前端项目发送的请求 全都先路由到renrenfast上
         - id: product_route
           uri: lb://product
           predicates:
             - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        # 库存服务
+        - id: ware_route
+          uri: lb://ware
+          predicates:
+            - Path=/api/ware/**
           filters:
             - RewritePath=/api/(?<segment>.*),/$\{segment}
         # 第三方服务
@@ -36,6 +42,12 @@ spring:
             - Path=/api/thirdparty/**
           filters:
             - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
+#        - id: member_route
+#            uri: lb://member
+#            predicates:
+#              - Path=/api/member/**
+#            filters:
+#              - RewritePath=/api/(?<segment>.*),/$\{segment}
         # renrenfast后台服务
         - id: admin_route
           uri: lb://renrenfast

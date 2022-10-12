@@ -8,7 +8,6 @@ import java.util.Map;
 
 /**
  * 商品库存
- *
  * @author wjh
  * @email junhaowang.stu@qq.com
  * @date 2022-01-09 15:37:45
@@ -16,5 +15,9 @@ import java.util.Map;
 public interface WareSkuService extends IService<WareSkuEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    void addStock(Long skuId, Long wareId, Integer skuNum);
+
+
 }
 
